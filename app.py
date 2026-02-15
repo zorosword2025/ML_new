@@ -37,9 +37,10 @@ def load_model(model_path):
 # ============================================================================
 st.header("0. Download Test Data (Optional)")
 
+TEST_DATA_PATH = '/content/test_data.csv'
 # Check if test_data.csv exists
-if os.path.exists('test_data.csv'):
-    test_df = pd.read_csv('test_data.csv')
+if os.path.exists(TEST_DATA_PATH):
+    test_df = pd.read_csv(TEST_DATA_PATH)
     
     # Show basic info
     st.write(f"Available test data: {test_df.shape[0]} rows, {test_df.shape[1]} columns")
