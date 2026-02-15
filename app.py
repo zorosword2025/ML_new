@@ -32,35 +32,7 @@ def load_model(model_path):
     with open(model_path, 'rb') as f:
         return pickle.load(f)
 
-# ============================================================================
-# NEW: Download Test Data Option
-# ============================================================================
-st.header("0. Download Test Data (Optional)")
 
-TEST_DATA_PATH = '/content/test_data.csv'
-# Check if test_data.csv exists
-if os.path.exists(TEST_DATA_PATH):
-    test_df = pd.read_csv(TEST_DATA_PATH)
-    
-    # Show basic info
-    st.write(f"Available test data: {test_df.shape[0]} rows, {test_df.shape[1]} columns")
-    
-    # Download button
-    csv = test_df.to_csv(index=False).encode('utf-8')
-    st.download_button(
-        label="Download test_data.csv",
-        data=csv,
-        file_name="test_data.csv",
-        mime="text/csv"
-    )
-    
-    # Show sample
-    if st.checkbox("Show sample data"):
-        st.dataframe(test_df.head())
-else:
-    st.info("test_data.csv not found. Upload your own CSV below.")
-
-st.markdown("---")
 
 # ============================================================================
 # FEATURE 1: Dataset Upload Option (CSV) - 1 mark
